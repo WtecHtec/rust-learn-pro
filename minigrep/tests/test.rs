@@ -3,7 +3,7 @@
 
 #[cfg(test)]
 mod tests {
-    use minigrep::search;
+    use minigrep::fileutils::*;
 
 
     #[test]
