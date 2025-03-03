@@ -1,9 +1,10 @@
 
 use  std::env;
 use std::process;
-use  std::fs;
+
 
 use minigrep::config::Config;
+use minigrep::fileutils::read_file_by_path;
 use minigrep::fileutils::search;
 
 
@@ -16,7 +17,7 @@ fn main() {
         process::exit(1);
     });
     println!("Config: {:#?}", config);
-    let contents = fs::read_to_string(config.file_path).expect("Should have been able to read the file");
+    let contents = read_file_by_path(&config.file_path);
     let results = search(&config.query, &contents);
     dbg!(results);
 }
